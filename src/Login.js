@@ -12,13 +12,26 @@ import {
 }
     from 'mdb-react-ui-kit';
 import './App.css'
-
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import AirplaneTicketIcon from '@mui/icons-material/AirplaneTicket';
 import { useAuth0 } from '@auth0/auth0-react';
 
 function Login() {
     const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
+    const navigate = useNavigate();
+
+    function handleLogin() {
+        var email = document.getElementById('formControlLgEmail').value;
+        var password = document.getElementById('formControlLgPass').value;
+
+        console.log(email, password);
+
+        if (email != "" && password != "") {
+            navigate('/admin');
+        }
+    }
+
     return (
         <div style={{ backgroundColor: "#9A616D", overflow: "hidden" }}>
             < MDBContainer className='my-4'>
@@ -50,7 +63,7 @@ function Login() {
                                     <MDBInput wrapperClass='mb-4' label='Email address' id='formControlLgEmail' type='email' size="lg" />
                                     <MDBInput wrapperClass='mb-4' label='Password' id='formControlLgPass' type='password' size="lg" />
 
-                                    <MDBBtn className="mb-4 px-5" color='dark' size='lg'>Login</MDBBtn>
+                                    <MDBBtn className="mb-4 px-5" color='dark' size='lg' onClick={() => handleLogin()}>Login</MDBBtn>
                                     {/* <a className="small text-muted" href="#!">Forgot password?</a>
                                 <p className="mb-5 pb-lg-2" style={{ color: '#393f81' }}>Don't have an account? <a href="#!" style={{ color: '#393f81' }}>Register here</a></p> */}
 
@@ -59,14 +72,10 @@ function Login() {
                                         <a href="#!" className="small text-muted">Privacy policy</a>
                                     </div>
                                 </div>
-
-
                             </MDBCardBody>
                         </MDBCol>
-
                     </MDBRow>
                 </MDBCard>
-
             </MDBContainer >
         </div >
     )

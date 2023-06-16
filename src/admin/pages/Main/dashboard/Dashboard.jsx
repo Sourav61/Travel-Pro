@@ -1,6 +1,6 @@
 import Sidebar from "../../../components/sidebar/Sidebar";
 import Navbar from "../../../components/navbar/Navbar";
-import "./home.scss";
+import "./dashboard.scss";
 import Widget from "../../../components/widget/Widget";
 import Featured from "../../../components/featured/Featured";
 import Chart from "../../../components/chart/Chart";
@@ -8,7 +8,7 @@ import Table from "../../../components/table/Table";
 
 const Dashboard = () => {
   return (
-    <div className="home">
+    <div className="dashboard">
       <Sidebar />
       <div className="homeContainer">
         <Navbar />

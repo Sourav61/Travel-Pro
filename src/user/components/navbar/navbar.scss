@@ -1,5 +1,5 @@
 .navbar {
-  height: 50px;
+  height: 70px;
   border-bottom: 0.5px solid rgb(231, 228, 228);
   display: flex;
   align-items: center;
@@ -15,21 +15,38 @@
     align-items: center;
     justify-content: space-between;
 
-    .search {
+    .logo-search {
       display: flex;
       align-items: center;
-      border: 0.5px solid lightgray;
       padding: 3px;
 
-      input {
-        border: none;
-        outline: none;
-        background: transparent;
-
-        &::placeholder {
-          font-size: 12px;
+      .logo {
+        img {
+          height: 60px;
+          padding: 3px;
+          width: 60px;
+          margin-right: 10px;
         }
       }
+
+      .search {
+        display: flex;
+        align-items: center;
+        border: 0.5px solid lightgray;
+        padding: 3px;
+
+        input {
+          border: none;
+          outline: none;
+          background: transparent;
+
+          &::placeholder {
+            font-size: 12px;
+          }
+        }
+      }
+
+
     }
 
     .items {
@@ -80,6 +97,7 @@
         .p-login {
           padding: 4px 10px;
           font-weight: bold;
+          margin-bottom: 0px;
         }
 
         .user-info {

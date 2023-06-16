@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../../../admin/components/navbar/Navbar'
+import Navbar from '../../components/navbar/Navbar'
 import "./home.scss"
 
 function home() {
@@ -16,13 +16,13 @@ function home() {
 
     return (
         <div className='home'>
-            <div className="modal" id="modal" style={{ position: "absolute" }}>
+            {/* <div className="modal" id="modal" style={{ position: "absolute" }}>
                 <h2>Modal Window</h2>
                 <div className="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis deserunt corrupti, ut fugit magni qui quasi nisi amet repellendus non fuga omnis a sed impedit explicabo accusantium nihil doloremque consequuntur.</div>
                 <div className="actions">
                     <button className="toggle-button">OK</button>
                 </div>
-            </div>
+            </div> */}
             <Navbar />
         </div>
     )
