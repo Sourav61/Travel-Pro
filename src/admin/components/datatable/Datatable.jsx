@@ -1,11 +1,23 @@
-import "./datatable.scss";
+import { useState, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { userColumns, userRows } from "../../datatablesource";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import "./datatable.scss";
+import { db } from '../../firebase-config'
+import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from "firebase/firestore"
 
 const Datatable = () => {
   const [data, setData] = useState(userRows);
+  const usersCollectionRef = collection(db, "users")
+
+  useEffect(() => {
+    const getUsers = async () => {
+      const data = await getDocs(usersCollectionRef);
+      setData(data.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+    }
+
+    getUsers();
+  }, [])
 
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));

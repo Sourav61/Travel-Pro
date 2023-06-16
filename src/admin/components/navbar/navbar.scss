@@ -37,7 +37,7 @@
       .item {
         display: flex;
         align-items: center;
-        margin-right: 20px;
+        padding: 5px;
         position: relative;
 
         .icon {
@@ -65,6 +65,27 @@
           top: -5px;
           right: -5px;
         }
+
+        .btn-login,
+        .btn-logout {
+          background-color: blueviolet;
+          padding: 5px 10px;
+          color: white;
+          border: 0px;
+          cursor: pointer;
+        }
+
+        .p-login {
+          padding: 4px 10px;
+          font-weight: bold;
+        }
+
+        .user-info {
+          display: flex;
+          align-items: center;
+        }
+
+
       }
     }
   }

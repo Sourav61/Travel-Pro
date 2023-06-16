@@ -6,7 +6,7 @@ import Featured from "../../../components/featured/Featured";
 import Chart from "../../../components/chart/Chart";
 import Table from "../../../components/table/Table";
 
-const Home = () => {
+const Dashboard = () => {
   return (
     <div className="home">
       <Sidebar />
@@ -31,4 +31,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Dashboard;

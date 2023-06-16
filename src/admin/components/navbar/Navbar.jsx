@@ -8,12 +8,27 @@ import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutline
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import { Modal } from "@mui/material";
 
 const Navbar = () => {
   const { dispatch } = useContext(DarkModeContext);
+  const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
+
+  function modalPopUp() {
+    var buttons = document.querySelectorAll(".toggle-button");
+    var modal = document.querySelector("#modal");
+
+    [].forEach.call(buttons, function (button) {
+      button.addEventListener("click", function () {
+        modal.classList.toggle("off");
+      });
+    });
+  }
 
   return (
     <div className="navbar">
+
       <div className="wrapper">
         <div className="search">
           <input type="text" placeholder="Search..." />
@@ -45,15 +60,30 @@ const Navbar = () => {
             <ListOutlinedIcon className="icon" />
           </div>
           <div className="item">
-            <img
-              src="https://images.pexels.com/photos/941693/pexels-photo-941693.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-              alt=""
-              className="avatar"
-            />
+            {isAuthenticated &&
+              <div className="user-info">
+                <img
+                  src={user?.picture}
+                  alt=""
+                  className="avatar"
+                />
+                <p className="p-login">
+                  {user.name}
+                </p>
+              </div>
+            }
+            {
+              isAuthenticated ?
+                <button className="btn-logout" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                  Log Out
+                </button> :
+                <button className="btn-login toggle-button" onClick={() => modalPopUp()}>Log In</button>
+            }
+
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
