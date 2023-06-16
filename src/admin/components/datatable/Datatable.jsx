@@ -7,8 +7,8 @@ import { db } from '../../firebase-config'
 import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from "firebase/firestore"
 
 const Datatable = () => {
-  const [data, setData] = useState(userRows);
-  const usersCollectionRef = collection(db, "users")
+  const [data, setData] = useState([]);
+  const usersCollectionRef = collection(db, "flights")
 
   useEffect(() => {
     const getUsers = async () => {
@@ -28,6 +28,7 @@ const Datatable = () => {
       field: "action",
       headerName: "Action",
       width: 200,
+      headerAlign: 'center',
       renderCell: (params) => {
         return (
           <div className="cellAction">
@@ -45,18 +46,19 @@ const Datatable = () => {
       },
     },
   ];
+
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        Add New User
-        <Link to="/users/new" className="link">
+        {/* Add New Flight */}
+        <Link to="/admin/flights/new" className="link">
           Add New
         </Link>
       </div>
       <DataGrid
         className="datagrid"
         rows={data}
-        columns={userColumns.concat(actionColumn)}
+        columns={userColumns?.concat(actionColumn)}
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection

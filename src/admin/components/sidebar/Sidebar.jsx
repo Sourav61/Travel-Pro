@@ -12,7 +12,7 @@ import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSyst
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { Link } from "react-router-dom";
-import { DarkModeContext } from "../../context/darkModeContext";
+import { DarkModeContext } from "../../../context/darkModeContext";
 import { useContext } from "react";
 
 const Sidebar = () => {
@@ -39,10 +39,10 @@ const Sidebar = () => {
               <span>Users</span>
             </li>
           </Link>
-          <Link to="/admin/products" style={{ textDecoration: "none" }}>
+          <Link to="/admin/flights" style={{ textDecoration: "none" }}>
             <li>
               <StoreIcon className="icon" />
-              <span>Products</span>
+              <span>Flights</span>
             </li>
           </Link>
           <li>

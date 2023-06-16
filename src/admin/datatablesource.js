@@ -1,37 +1,77 @@
 export const userColumns = [
-  { field: "id", headerName: "ID", width: 70 },
   {
-    field: "user",
-    headerName: "User",
-    width: 230,
+    field: "id", headerName: "ID",
+    width: 80,
+    headerAlign: 'center',
     renderCell: (params) => {
       return (
-        <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img} alt="avatar" />
-          {params.row.username}
+        <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
+          {params.row.id}
         </div>
       );
     },
   },
   {
-    field: "email",
-    headerName: "Email",
-    width: 230,
+    field: "airlines", headerName: "Airlines",
+    width: 80,
+    headerAlign: 'center',
+    renderCell: (params) => {
+      return (
+        <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
+          {params?.row?.airlines}
+        </div>
+      );
+    },
+  },
+  {
+    field: "Arrival",
+    headerName: "Arrival",
+    width: 160,
+    headerAlign: 'center',
+    renderCell: (params) => {
+      return (
+        <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
+          {params?.row?.arrival ? new Date(params?.row?.arrival)?.toISOString()?.substring(0, 10) : new Date()?.toISOString()?.substring(0, 10)}
+        </div>
+      );
+    },
   },
 
   {
-    field: "age",
-    headerName: "Age",
-    width: 100,
+    field: "Departure",
+    headerName: "Departure",
+    width: 160,
+    headerAlign: 'center',
+    renderCell: (params) => {
+      console.log(params?.row);
+      return (
+        <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
+          {params?.row?.departure ? new Date(params?.row?.departure)?.toISOString()?.substring(0, 10) : new Date()?.toISOString()?.substring(0, 10)}
+        </div>
+      );
+    },
   },
   {
-    field: "status",
-    headerName: "Status",
-    width: 160,
+    field: "airlines", headerName: "Airlines",
+    width: 80,
+    headerAlign: 'center',
     renderCell: (params) => {
       return (
-        <div className={`cellWithStatus ${params.row.status}`}>
-          {params.row.status}
+        <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
+          {params?.row?.airlines}
+        </div>
+      );
+    },
+  },
+  {
+    field: "adult",
+    headerName: "adult",
+    width: 180,
+    headerAlign: 'center',
+    renderCell: (params) => {
+      return (
+        <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
+          {params?.row?.adult}
         </div>
       );
     },
