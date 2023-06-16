@@ -1,6 +1,9 @@
 import React from 'react'
 import Navbar from '../../components/navbar/Navbar'
 import "./home.scss"
+import DefaultLayout from "../../layouts/DeafaultLayout";
+import FlightSearcher from "../../containers/FlightSearcher";
+import ResultsContainer from "../../containers/ResultsContainer";
 
 function home() {
     function modalPopUp() {
@@ -15,16 +18,10 @@ function home() {
     }
 
     return (
-        <div className='home'>
-            {/* <div className="modal" id="modal" style={{ position: "absolute" }}>
-                <h2>Modal Window</h2>
-                <div className="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis deserunt corrupti, ut fugit magni qui quasi nisi amet repellendus non fuga omnis a sed impedit explicabo accusantium nihil doloremque consequuntur.</div>
-                <div className="actions">
-                    <button className="toggle-button">OK</button>
-                </div>
-            </div> */}
-            <Navbar />
-        </div>
+        <DefaultLayout>
+            <FlightSearcher />
+            <ResultsContainer />
+        </DefaultLayout>
     )
 }
 
