@@ -1,6 +1,26 @@
 .home {
     display: block;
 
+    .main {
+        padding: 20px;
+
+        .filters {
+            padding-top: 10px;
+
+            .adults {
+                border-radius: 4px;
+                height: 100%;
+                width: 100%;
+                border: 2px solid lightgray;
+                padding: 10px;
+            }
+        }
+
+        .search {
+            padding-top: 10px;
+        }
+    }
+
     .modal {
         width: 500px;
         background: white;

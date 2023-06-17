@@ -27,3 +27,10 @@ export const setArrivaltime = (time) => {
     payload: time,
   };
 };
+
+export const updateSeatCount = (seats) => {
+  return {
+    type: ActionTypes.SET_SEATS_LEFT,
+    payload: seats,
+  };
+};

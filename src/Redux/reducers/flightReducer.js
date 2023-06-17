@@ -5,15 +5,14 @@ const initialState = {
   to: "",
   arrivalTime: new Date().getTime(),
   departureTime: new Date().getTime(),
+  seats: 1
 };
 
 export const updateDestination = (state = initialState, { type, payload }) => {
   switch (type) {
     case ActionTypes.SET_FROM:
-      console.log('from payload', payload)
       return { ...state, from: payload };
     case ActionTypes.SET_TO:
-      console.log('to payload', payload)
       return { ...state, to: payload };
     default:
       return state;
@@ -23,11 +22,19 @@ export const updateDestination = (state = initialState, { type, payload }) => {
 export const updateTime = (state = initialState, { type, payload }) => {
   switch (type) {
     case ActionTypes.SET_DEPARTURE_TIME:
-      console.log('departure payload', payload)
       return { ...state, departureTime: payload };
     case ActionTypes.SET_ARRIVAL_TIME:
-      console.log('arrival payload', payload)
       return { ...state, arrivalTime: payload };
+    default:
+      return state;
+  }
+};
+
+export const updateDetails = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case ActionTypes.SET_SEATS_LEFT:
+      console.log('seats for booking', payload);
+      return { ...state, seats: payload };
     default:
       return state;
   }

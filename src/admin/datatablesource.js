@@ -43,7 +43,7 @@ export const userColumns = [
     renderCell: (params) => {
       return (
         <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
-          {params?.row?.arrival ? new Date(params?.row?.arrival)?.toISOString()?.substring(0, 10) : new Date()?.toISOString()?.substring(0, 10)}
+          {params?.row?.arrival ? `${new Date(params?.row?.arrival)?.toISOString()?.substring(0, 10)} ${new Date().getHours()}:${new Date().getMinutes()}` : new Date()?.toISOString()?.substring(0, 10)}
         </div>
       );
     },
@@ -57,7 +57,7 @@ export const userColumns = [
     renderCell: (params) => {
       return (
         <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
-          {params?.row?.departure ? new Date(params?.row?.departure)?.toISOString()?.substring(0, 10) : new Date()?.toISOString()?.substring(0, 10)}
+          {params?.row?.departure ? `${new Date(params?.row?.departure)?.toISOString()?.substring(0, 10)} ${new Date().getHours()}:${new Date().getMinutes()}` : new Date()?.toISOString()?.substring(0, 10)}
         </div>
       );
     },
