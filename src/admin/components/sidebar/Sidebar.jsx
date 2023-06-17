@@ -21,7 +21,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="top">
         <Link to="/admin" style={{ textDecoration: "none" }}>
-          <span className="logo">Control Center</span>
+          <span className="logo">Travel Pro</span>
         </Link>
       </div>
       <hr />
@@ -33,10 +33,10 @@ const Sidebar = () => {
             <span>Dashboard</span>
           </li>
           <p className="title">LISTS</p>
-          <Link to="/admin/users" style={{ textDecoration: "none" }}>
+          <Link to="/admin/bookings" style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineIcon className="icon" />
-              <span>Users</span>
+              <span>Bookings</span>
             </li>
           </Link>
           <Link to="/admin/flights" style={{ textDecoration: "none" }}>
@@ -45,7 +45,7 @@ const Sidebar = () => {
               <span>Flights</span>
             </li>
           </Link>
-          <li>
+          {/* <li>
             <CreditCardIcon className="icon" />
             <span>Orders</span>
           </li>
@@ -83,10 +83,10 @@ const Sidebar = () => {
           <li>
             <ExitToAppIcon className="icon" />
             <span>Logout</span>
-          </li>
+          </li> */}
         </ul>
       </div>
-      <div className="bottom">
+      {/* <div className="bottom">
         <div
           className="colorOption"
           onClick={() => dispatch({ type: "LIGHT" })}
@@ -95,7 +95,7 @@ const Sidebar = () => {
           className="colorOption"
           onClick={() => dispatch({ type: "DARK" })}
         ></div>
-      </div>
+      </div> */}
     </div>
   );
 };

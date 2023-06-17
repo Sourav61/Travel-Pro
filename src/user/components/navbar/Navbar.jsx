@@ -10,6 +10,7 @@ import { DarkModeContext } from "../../../context/darkModeContext";
 import { useContext } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Modal } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { dispatch } = useContext(DarkModeContext);
@@ -32,15 +33,20 @@ const Navbar = () => {
       <div className="wrapper">
 
         <div className="logo-search">
-          <div className="logo">
+          <Link to="/" className="logo">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ8fmaczQqcQTwZBhZTRwGza66UEuoZRMXYWOalMd1SwBaY8wKR1lL5zMOMxhPQBbHzmQ&usqp=CAU" alt="" />
-          </div>
+          </Link>
           <div className="search">
             <input type="text" placeholder="Search..." />
             <SearchOutlinedIcon />
           </div>
         </div>
         <div className="items">
+          <div className="item">
+            <Link to="/bookings" className="btn-logout">
+              My Bookings
+            </Link>
+          </div>
           <div className="item">
             <LanguageOutlinedIcon className="icon" />
             English

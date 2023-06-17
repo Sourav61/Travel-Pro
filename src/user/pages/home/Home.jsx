@@ -18,27 +18,28 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Home = () => {
     const [data, setData] = useState([])
-    const usersCollectionRef = collection(db, "flights")
     const [type, setType] = useState("");
-    const [airlines, setAirlines] = useState("");
     const [category, setCategory] = useState("economy");
-    const [price, setPrice] = useState(3000);
-    const [stops, setStops] = useState(0);
-    const [departure, setDeparture] = useState(new Date().getTime());
-    const [arrival, setArrival] = useState(new Date().getTime());
-    const [from, setFrom] = useState("");
-    const [to, setTo] = useState("");
     const [bookings, setBookings] = useState([])
 
     const { arrivalTime, departureTime } = useSelector((state) => state.time);
     const { seats } = useSelector((state) => state.details);
     const dispatch = useDispatch();
 
-    const ref = collection(db, "flights");
+    const usersCollectionRef = collection(db, "flights")
 
-    const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
+    const { user } = useAuth0();
 
     useEffect(() => {
+        const getBookings = async () => {
+            const bookingsRef = collection(db, "bookings");
+
+            const booking = await getDocs(bookingsRef);
+            setBookings(booking.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+        }
+
+        getBookings();
+
         const getFlightDetails = async () => {
             const data = await getDocs(usersCollectionRef);
             setData(data?.docs?.map(doc => ({ ...doc.data(), id: doc.id })))
@@ -57,6 +58,8 @@ const Home = () => {
 
     const handleClick = async () => {
         var result = [];
+        const ref = collection(db, "flights");
+
         if (compareDates(arrivalTime, departureTime) <= 0) {
             const q = query(ref, where("seats", "<=", seats));
 
@@ -83,14 +86,7 @@ const Home = () => {
     };
 
     useEffect(() => {
-        const getBookings = async () => {
-            const bookingsRef = collection(db, "bookings");
 
-            const booking = await getDocs(bookingsRef);
-            setBookings(booking.docs.map(doc => ({ ...doc.data(), id: doc.id })))
-        }
-
-        getBookings();
     }, [])
 
     const bookTicket = async (params) => {

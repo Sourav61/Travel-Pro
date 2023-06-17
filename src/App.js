@@ -15,6 +15,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Provider } from "react-redux";
 import { applyMiddleware, compose, legacy_createStore as createStore } from "redux";
 import store from "./Redux/store";
+import BookingList from "./user/components/BookingList/BookingList";
+import Bookings from "./admin/pages/Main/bookings/Bookings";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -29,7 +31,7 @@ function App() {
               <Route index element={!isAuthenticated ? <Login /> : <Home />} />
               <Route path="admin">
                 <Route index element={<Dashboard />} />
-                {/* <Route path="home" element={<Home />} /> */}
+                <Route path="bookings" element={<Bookings />} />
                 <Route path="users">
                   <Route index element={<List />} />
                   <Route path=":userId" element={<Single />} />
@@ -47,8 +49,8 @@ function App() {
                   />
                 </Route>
               </Route>
-              <Route path="user">
-                <Route index element={<Home />} />
+              <Route path="bookings">
+                <Route index element={<BookingList />} />
               </Route>
             </Route>
           </Routes>

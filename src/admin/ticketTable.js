@@ -1,9 +1,10 @@
-export const userColumns = [
+export const ticketColumns = [
   {
     field: "id", headerName: "ID",
-    width: 50,
+    width: 300,
     headerAlign: 'center',
     renderCell: (params) => {
+      console.log('chekcPA', params);
       return (
         <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
           {params.row.id}
@@ -12,112 +13,25 @@ export const userColumns = [
     },
   },
   {
-    field: "type", headerName: "type",
-    width: 70,
+    field: "email", headerName: "email",
+    width: 150,
     headerAlign: 'center',
     renderCell: (params) => {
       return (
         <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
-          {params?.row?.type}
+          {params?.row?.email}
         </div>
       );
     },
   },
   {
-    field: "airlines", headerName: "Airlines",
-    width: 70,
+    field: "flightId", headerName: "Flight Id",
+    width: 300,
     headerAlign: 'center',
     renderCell: (params) => {
       return (
         <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
-          {params?.row?.airlines}
-        </div>
-      );
-    },
-  },
-  {
-    field: "Arrival",
-    headerName: "Arrival",
-    width: 130,
-    headerAlign: 'center',
-    renderCell: (params) => {
-      return (
-        <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
-          {params?.row?.arrival ? `${new Date(params?.row?.arrival)?.toISOString()?.substring(0, 10)} ${new Date().getHours()}:${new Date().getMinutes()}` : new Date()?.toISOString()?.substring(0, 10)}
-        </div>
-      );
-    },
-  },
-
-  {
-    field: "Departure",
-    headerName: "Departure",
-    width: 130,
-    headerAlign: 'center',
-    renderCell: (params) => {
-      return (
-        <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
-          {params?.row?.departure ? `${new Date(params?.row?.departure)?.toISOString()?.substring(0, 10)} ${new Date().getHours()}:${new Date().getMinutes()}` : new Date()?.toISOString()?.substring(0, 10)}
-        </div>
-      );
-    },
-  },
-  {
-    field: "from", headerName: "From",
-    width: 80,
-    headerAlign: 'center',
-    renderCell: (params) => {
-      return (
-        <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
-          {params?.row?.from}
-        </div>
-      );
-    },
-  },
-  {
-    field: "to", headerName: "To",
-    width: 80,
-    headerAlign: 'center',
-    renderCell: (params) => {
-      return (
-        <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
-          {params?.row?.to}
-        </div>
-      );
-    },
-  },
-  {
-    field: "stops", headerName: "Stops",
-    width: 80,
-    headerAlign: 'center',
-    renderCell: (params) => {
-      return (
-        <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
-          {params?.row?.stops == 0 ? 'Non-Stop' : params?.row?.stops}
-        </div>
-      );
-    },
-  },
-  {
-    field: "seats", headerName: "seats",
-    width: 80,
-    headerAlign: 'center',
-    renderCell: (params) => {
-      return (
-        <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
-          {params?.row?.seats == 0 ? 'Seats Full' : params?.row?.seats}
-        </div>
-      );
-    },
-  },
-  {
-    field: "price", headerName: "Price",
-    width: 80,
-    headerAlign: 'center',
-    renderCell: (params) => {
-      return (
-        <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
-          {params?.row?.price}
+          {params?.row?.flightId}
         </div>
       );
     },
