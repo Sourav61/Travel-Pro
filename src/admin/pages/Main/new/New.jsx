@@ -42,11 +42,11 @@ const New = ({ inputs, title }) => {
     // } catch (err) {
     //   console.log(err);
     // }
-    console.log(2, airlines,
-      category,
-      seats, price, stops, departure,
-      arrival, from, to,)
-    navigate(-2)
+    // console.log(2, airlines,
+    //   category,
+    //   seats, price, stops, departure,
+    //   arrival, from, to,)
+    navigate(-1)
   }
 
   return (

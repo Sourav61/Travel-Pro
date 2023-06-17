@@ -11,41 +11,33 @@ import * as React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 //REDUX
-import {
-  addCarryOnBag,
-  addCheckedBag,
-  removeCarryOnBag,
-  removeCheckedBag,
-  setBags,
-} from "../../Redux/actions/fligth.actions";
 
 export default function BagsSelectMenu(props) {
   const { options, label } = props;
   const [option, setOption] = React.useState("");
   const dispatch = useDispatch();
-  const { bags, carryOnBags, checkedBags } = useSelector((state) => state.flights);
   const [total, setTotal] = useState(0);
-  const [numbersArray, setNumbersArray] = useState([bags, carryOnBags, checkedBags]);
+  // const [numbersArray, setNumbersArray] = useState([bags, carryOnBags, checkedBags]);
 
-  const handleAdd = (index) => {
-    const newNumbersArray = [...numbersArray];
-    newNumbersArray[index] = newNumbersArray[index] + 1;
-    setNumbersArray(newNumbersArray);
-    setTotal(total + 1);
-    dispatch(setBags(total + 1));
-    index === 0 ? dispatch(addCarryOnBag()) : dispatch(addCheckedBag());
-  };
+  // const handleAdd = (index) => {
+  //   const newNumbersArray = [...numbersArray];
+  //   newNumbersArray[index] = newNumbersArray[index] + 1;
+  //   setNumbersArray(newNumbersArray);
+  //   setTotal(total + 1);
+  //   dispatch(setBags(total + 1));
+  //   index === 0 ? dispatch(addCarryOnBag()) : dispatch(addCheckedBag());
+  // };
 
-  const handleRemove = (index) => {
-    const newNumbersArray = [...numbersArray];
-    if (newNumbersArray[index] > 0) {
-      newNumbersArray[index] = newNumbersArray[index] - 1;
-      setNumbersArray(newNumbersArray);
-      setTotal(total - 1);
-      dispatch(setBags(total - 1));
-      index === 0 ? dispatch(removeCarryOnBag()) : dispatch(removeCheckedBag());
-    }
-  };
+  // const handleRemove = (index) => {
+  //   const newNumbersArray = [...numbersArray];
+  //   if (newNumbersArray[index] > 0) {
+  //     newNumbersArray[index] = newNumbersArray[index] - 1;
+  //     setNumbersArray(newNumbersArray);
+  //     setTotal(total - 1);
+  //     dispatch(setBags(total - 1));
+  //     index === 0 ? dispatch(removeCarryOnBag()) : dispatch(removeCheckedBag());
+  //   }
+  // };
 
   return (
     <Box>
@@ -63,7 +55,9 @@ export default function BagsSelectMenu(props) {
                 <MenuItem value={option}>{option} &nbsp;</MenuItem>
               </Grid>
               <Grid item xs={6} display="flex" direction="row" spacing={3} gap={1}>
-                <Fab size="small" color="success" aria-label="add" onClick={() => handleAdd(index)}>
+                <Fab size="small" color="success" aria-label="add"
+                // onClick={() => handleAdd(index)}
+                >
                   <AddIcon />
                 </Fab>
                 <Typography
@@ -74,14 +68,14 @@ export default function BagsSelectMenu(props) {
                     color: "gray",
                   }}
                 >
-                  {numbersArray[index]}
+                  {/* {numbersArray[index]} */}
                 </Typography>
                 <Fab
                   size="small"
                   color="primary"
                   aria-label="remove"
-                  onClick={() => handleRemove(index)}
-                  disabled={numbersArray[index] === 0}
+                // onClick={() => handleRemove(index)}
+                // disabled={numbersArray[index] === 0}
                 >
                   <RemoveIcon />
                 </Fab>

@@ -12,62 +12,61 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 //REDUX
-import { setCabin, setTravelers } from "../../Redux/actions/fligth.actions";
 
 export default function TravelersSelectMenu(props) {
   const { options } = props;
   const [option, setOption] = React.useState("");
   const [label, setLabel] = useState("");
   const dispatch = useDispatch();
-  const { adults, students, seniors, youths, children, toddlers, infants } = useSelector(
-    (state) => state.flights
-  );
+  // const { adults, students, seniors, youths, children, toddlers, infants } = useSelector(
+  //   (state) => state.flights
+  // );
   const [travelers, setTravelers] = useState(1);
-  const [numbersArray, setNumbersArray] = useState([
-    adults,
-    students,
-    seniors,
-    youths,
-    children,
-    toddlers,
-    infants,
-  ]);
+  // const [numbersArray, setNumbersArray] = useState([
+  //   adults,
+  //   students,
+  //   seniors,
+  //   youths,
+  //   children,
+  //   toddlers,
+  //   infants,
+  // ]);
 
-  const handleAdd = (index) => {
-    const newNumbersArray = [...numbersArray];
-    newNumbersArray[index] = newNumbersArray[index] + 1;
-    setNumbersArray(newNumbersArray);
-    setTravelers(travelers + 1);
-    dispatch(setTravelers(travelers + 1));
-    dispatch(setCabin(newNumbersArray));
-  };
+  // const handleAdd = (index) => {
+  //   const newNumbersArray = [...numbersArray];
+  //   newNumbersArray[index] = newNumbersArray[index] + 1;
+  //   setNumbersArray(newNumbersArray);
+  //   setTravelers(travelers + 1);
+  //   dispatch(setTravelers(travelers + 1));
+  //   dispatch(setCabin(newNumbersArray));
+  // };
 
-  const handleRemove = (index) => {
-    const newNumbersArray = [...numbersArray];
-    /* if index === 0 verify is adults > 1 */
-    if (index === 0) {
-      if (newNumbersArray[index] > 1) {
-        newNumbersArray[index] = newNumbersArray[index] - 1;
-        setNumbersArray(newNumbersArray);
-        setTravelers(travelers - 1);
-      }
-    } else {
-      if (newNumbersArray[index] > 0) {
-        newNumbersArray[index] = newNumbersArray[index] - 1;
-        setNumbersArray(newNumbersArray);
-        setTravelers(travelers - 1);
-      }
-    }
-    setNumbersArray(newNumbersArray);
-    adults > 1 && dispatch(setTravelers(travelers - 1));
-    dispatch(setCabin(newNumbersArray));
-  };
+  // const handleRemove = (index) => {
+  //   const newNumbersArray = [...numbersArray];
+  //   /* if index === 0 verify is adults > 1 */
+  //   if (index === 0) {
+  //     if (newNumbersArray[index] > 1) {
+  //       newNumbersArray[index] = newNumbersArray[index] - 1;
+  //       setNumbersArray(newNumbersArray);
+  //       setTravelers(travelers - 1);
+  //     }
+  //   } else {
+  //     if (newNumbersArray[index] > 0) {
+  //       newNumbersArray[index] = newNumbersArray[index] - 1;
+  //       setNumbersArray(newNumbersArray);
+  //       setTravelers(travelers - 1);
+  //     }
+  //   }
+  //   setNumbersArray(newNumbersArray);
+  //   adults > 1 && dispatch(setTravelers(travelers - 1));
+  //   dispatch(setCabin(newNumbersArray));
+  // };
 
   return (
     <Box>
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">
-          {travelers === 1 ? `${travelers} adult` : `${travelers} travelers`}
+          {/* {travelers === 1 ? `${travelers} adult` : `${travelers} travelers`} */}
         </InputLabel>
         <Select
           labelId="demo-simple-select-label"
@@ -84,7 +83,9 @@ export default function TravelersSelectMenu(props) {
                 </MenuItem>
               </Grid>
               <Grid item xs={5} display="flex" direction="row" spacing={3} gap={1}>
-                <Fab size="small" color="success" aria-label="add" onClick={() => handleAdd(index)}>
+                <Fab size="small" color="success" aria-label="add"
+                // onClick={() => handleAdd(index)}
+                >
                   <AddIcon />
                 </Fab>
                 <Typography
@@ -96,14 +97,14 @@ export default function TravelersSelectMenu(props) {
                     marginTop: "0.5rem",
                   }}
                 >
-                  {numbersArray[index]}
+                  {/* {numbersArray[index]}s */}
                 </Typography>
                 <Fab
                   size="small"
                   color="primary"
                   aria-label="remove"
-                  onClick={() => handleRemove(index)}
-                  disabled={numbersArray[index] === 0}
+                // onClick={() => handleRemove(index)}
+                // disabled={numbersArray[index] === 0}
                 >
                   <RemoveIcon />
                 </Fab>

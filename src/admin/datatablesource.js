@@ -12,6 +12,18 @@ export const userColumns = [
     },
   },
   {
+    field: "type", headerName: "type",
+    width: 120,
+    headerAlign: 'center',
+    renderCell: (params) => {
+      return (
+        <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
+          {params?.row?.type}
+        </div>
+      );
+    },
+  },
+  {
     field: "airlines", headerName: "Airlines",
     width: 80,
     headerAlign: 'center',
@@ -43,7 +55,6 @@ export const userColumns = [
     width: 160,
     headerAlign: 'center',
     renderCell: (params) => {
-      console.log(params?.row);
       return (
         <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
           {params?.row?.departure ? new Date(params?.row?.departure)?.toISOString()?.substring(0, 10) : new Date()?.toISOString()?.substring(0, 10)}
@@ -52,26 +63,73 @@ export const userColumns = [
     },
   },
   {
-    field: "airlines", headerName: "Airlines",
+    field: "category", headerName: "Class",
     width: 80,
     headerAlign: 'center',
     renderCell: (params) => {
       return (
         <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
-          {params?.row?.airlines}
+          {params?.row?.category}
         </div>
       );
     },
   },
   {
-    field: "adult",
-    headerName: "adult",
-    width: 180,
+    field: "from", headerName: "From",
+    width: 80,
     headerAlign: 'center',
     renderCell: (params) => {
       return (
         <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
-          {params?.row?.adult}
+          {params?.row?.from}
+        </div>
+      );
+    },
+  },
+  {
+    field: "to", headerName: "To",
+    width: 80,
+    headerAlign: 'center',
+    renderCell: (params) => {
+      return (
+        <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
+          {params?.row?.to}
+        </div>
+      );
+    },
+  },
+  {
+    field: "stops", headerName: "Stops",
+    width: 80,
+    headerAlign: 'center',
+    renderCell: (params) => {
+      return (
+        <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
+          {params?.row?.stops == 0 ? 'Non-Stop' : params?.row?.stops}
+        </div>
+      );
+    },
+  },
+  {
+    field: "seats", headerName: "seats",
+    width: 80,
+    headerAlign: 'center',
+    renderCell: (params) => {
+      return (
+        <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
+          {params?.row?.seats == 0 ? 'Seats Full' : params?.row?.seats}
+        </div>
+      );
+    },
+  },
+  {
+    field: "price", headerName: "Price",
+    width: 80,
+    headerAlign: 'center',
+    renderCell: (params) => {
+      return (
+        <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", flex: 1 }}>
+          {params?.row?.price}
         </div>
       );
     },

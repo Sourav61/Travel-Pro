@@ -72,14 +72,9 @@ const Navbar = () => {
                 </p>
               </div>
             }
-            {
-              isAuthenticated ?
-                <button className="btn-logout" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
-                  Log Out
-                </button> :
-                <button className="btn-login toggle-button" onClick={() => modalPopUp()}>Log In</button>
-            }
-
+            <button className="btn-logout" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+              Log Out
+            </button>
           </div>
         </div>
       </div>

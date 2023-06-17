@@ -5,10 +5,14 @@ import { Link } from "react-router-dom";
 import "./datatable.scss";
 import { db } from '../../firebase-config'
 import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from "firebase/firestore"
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Datatable = () => {
   const [data, setData] = useState([]);
   const usersCollectionRef = collection(db, "flights")
+
+  const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
+
 
   useEffect(() => {
     const getUsers = async () => {
@@ -19,8 +23,10 @@ const Datatable = () => {
     getUsers();
   }, [])
 
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
+    const userDoc = doc(db, "flights", id);
     setData(data.filter((item) => item.id !== id));
+    await deleteDoc(userDoc)
   };
 
   const actionColumn = [

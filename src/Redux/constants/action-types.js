@@ -1,0 +1,6 @@
+export const ActionTypes = {
+  SET_FROM: "SET_FROM",
+  SET_TO: "SET_TO",
+  SET_DEPARTURE_TIME: "SET_DEPARTURE_TIME",
+  SET_ARRIVAL_TIME: "SET_ARRIVAL_TIME"
+};

@@ -12,13 +12,9 @@ import { DarkModeContext } from "./context/darkModeContext";
 import 'bootstrap/dist/css/bootstrap.css';
 import { useAuth0 } from "@auth0/auth0-react";
 
-import rootReducer from "./Redux/reducers/root.reducer";
 import { Provider } from "react-redux";
 import { applyMiddleware, compose, legacy_createStore as createStore } from "redux";
-
-const composedEnhancer = compose(applyMiddleware());
-
-const store = createStore(rootReducer, composedEnhancer);
+import store from "./Redux/store";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -26,8 +22,6 @@ function App() {
 
   return (
     <div className={darkMode ? "app dark" : "app"}>
-      {/* <LocalizationProvider dateAdapter={AdapterDateFns} >
-        <AppContext.Provider value={initialState}> */}
       <Provider store={store}>
         <BrowserRouter>
           <Routes>
@@ -60,8 +54,6 @@ function App() {
           </Routes>
         </BrowserRouter>
       </Provider>
-      {/* </AppContext.Provider>
-      </LocalizationProvider> */}
     </div>
   );
 }
